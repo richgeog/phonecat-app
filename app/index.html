@@ -9,13 +9,21 @@
   <script src=js/controllers.js></script>
 </head>
 <body ng-controller="PhoneListCtrl">
+  <div class='container-flluid'>
+    <div class='row'>
+      <div class='col-md-2'>
+        Search: <input ng-model='query'>
+      </div>
+      <div class='col-md-10'>
 
-  <ul>
-    <li ng-repeat="phone in phones">
-      <span>{{phone.name}}</span>
-      <p>{{phone.snippet}}</p>
-    </li>
-  </ul>
-
+        <ul>
+          <li ng-repeat="phone in phones | filter:query">
+            {{phone.name}}
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
