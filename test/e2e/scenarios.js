@@ -61,5 +61,14 @@ describe('PhoneCat App', function() {
       "DROID\u2122 Pro by Motorola"
       ]);
     });
+
+    it('should render the phone specific links', function() {
+      var query = element(by.model('query'));
+      query.sendKeys('nexus');
+      element.all(by.css('.phones li a')).first().click();
+      browser.getLocationAbsUrl().then(function(url) {
+        expect(url).toBe('/phones/nexus-s');
+      });
+    });
   });
 });
