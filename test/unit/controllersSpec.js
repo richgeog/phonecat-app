@@ -4,11 +4,11 @@
 
 describe('PhoneCat controllers', function() {
 
-  describe('PhoneListCtrl', function() {
-    var scope, ctrl, $httpBackend;
-
   // Load our app module definition before each test.
   beforeEach(module('phonecatApp'));
+
+  describe('PhoneListCtrl', function() {
+    var scope, ctrl, $httpBackend;
 
   // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
   // This allows us to inject a service but then attach it to a variable
@@ -36,5 +36,22 @@ describe('PhoneCat controllers', function() {
   });
 
     describe('PhoneDetailCtrl', function() {
+      var scope, $httpBackend, ctrl;
+
+      beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
+        $httpBackend = _$httpBackend_;
+        $httpBackend.expectGET('phones/xyz.json').respond({name: 'phone xyz'});
+
+        $routeParams.phoneId = 'xyz';
+        scope = $rootScope.$new();
+        ctrl = $controller('PhoneDetailCtrl', {$scope: scope});
+      }));
+
+      it('should fetch phone detail', function() {
+        expect(scope.phone).toBeUndefined();
+        $httpBackend.flush();
+
+        expect(scope.phone).toEqual({name: 'phone xyz'});
+      });
     });
 });
