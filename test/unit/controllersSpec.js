@@ -2,7 +2,7 @@
 
 /* jasmine specs for controllers go here */
 
-describe('PhoneCat controller', function() {
+describe('PhoneCat controllers', function() {
 
   describe('PhoneListCtrl', function() {
     var scope, ctrl, $httpBackend;
@@ -34,4 +34,7 @@ describe('PhoneCat controller', function() {
       expect(scope.orderProp).toBe('age');
     });
   });
+
+    describe('PhoneDetailCtrl', function() {
+    });
 });
