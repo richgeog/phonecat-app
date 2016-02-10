@@ -14,14 +14,14 @@ describe('PhoneCat App', function() {
       var phoneList = element.all(by.repeater('phone in phones'));
       var query = element(by.model('query'));
 
-      expect(phoneList.count()).toBe(3);
+      expect(phoneList.count()).toBe(20);
 
       query.sendKeys('nexus');
       expect(phoneList.count()).toBe(1);
 
       query.clear();
       query.sendKeys('motorola');
-      expect(phoneList.count()).toBe(2);
+      expect(phoneList.count()).toBe(8);
     });
 
     it('should be possible to control phone order via the drop down select box', function() {
@@ -39,13 +39,13 @@ describe('PhoneCat App', function() {
 
     expect(getNames()).toEqual([
       "Motorola XOOM\u2122 with Wi-Fi",
-      "Motorola XOOM\u2122"
+      "MOTOROLA XOOM\u2122"
       ]);
 
     element(by.model('orderProp')).element(by.css('option[value="name"]')).click();
 
     expect(getNames()).toEqual([
-      "Motorola XOOM\u2122",
+      "MOTOROLA XOOM\u2122",
       "Motorola XOOM\u2122 with Wi-Fi"
       ]);
 
@@ -55,9 +55,10 @@ describe('PhoneCat App', function() {
     element(by.model('orderProp')).element(by.css('option[value="age"]')).click();
 
     expect(getNames()).toEqual([
-      "Nexus S",
       "Motorola XOOM\u2122 with Wi-Fi",
-      "Motorola XOOM\u2122"
+      "MOTOROLA XOOM\u2122",
+      "Nexus S",
+      "DROID\u2122 Pro by Motorola"
       ]);
     });
   });
