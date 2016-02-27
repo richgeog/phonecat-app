@@ -36,11 +36,10 @@ module.exports = function(config){
       suite: 'unit'
     }
 
-  });
-
    if(process.env.TRAVIS){
     configuration.browsers = ['Chrome_travis_ci'];
   }
 
   config.set(configuration);
+  });
 };
