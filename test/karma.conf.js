@@ -34,12 +34,15 @@ module.exports = function(config){
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
-    }
+    },
+    
+    singleRun: true
+    
+  });
 
    if(process.env.TRAVIS){
     configuration.browsers = ['Chrome_travis_ci'];
   }
 
   config.set(configuration);
-  });
 };
