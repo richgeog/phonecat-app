@@ -11,6 +11,12 @@ Styling has been added with some simple animations using jQuery and angular-anim
 
 If you would like to try the tutorial yourself here is the link https://docs.angularjs.org/tutorial
 
+### Images
+---
+![catscreenshot](readme_images/screenshot1.png)
+
+![phonescreenshot](readme_images/screenshot2.png)
+
 ### Setup and running the application
 ---
 First clone the repo using this command in your terminal window
